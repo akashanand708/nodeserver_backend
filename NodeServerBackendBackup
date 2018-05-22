@@ -1,0 +1,11 @@
+RUN SQL SERVER
+/usr/local/mysql/bin/mysql -u root -p
+
+UPDATE mysql.USER
+SET plugin = OLD_PASSWORD('Akash@28')
+WHERE USER='root'
+AND host='localhost';
+
+ UPDATE mysql.user
+ SET password='Akash@28' WHERE user='root';
+ FLUSH PRIVILEGES;

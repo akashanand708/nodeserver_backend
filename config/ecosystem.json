@@ -1,0 +1,20 @@
+{
+  "name"                : "node-server-boilerplate",
+  "cwd"                 : "",
+  "script"              : "dist/app.js",
+  "source_map_support"  : true,
+  "node_args"           : [],
+  "exec_mode"           : "cluster",
+  "log_date_format"     : "YYYY-MM-DD HH:mm:ss",
+  "error_file"          : "logs/error.log",
+  "out_file"            : "logs/out.log",
+  "instances"           : 1,
+  "min_uptime"          : "1000s",
+  "max_restarts"        : 10,
+  "max_memory_restart"  : "450M",
+  "autorestart"         : true,
+  "env"                 : {
+    "NODE_ENV"          : "production",
+    "PORT"              : 3000
+  }
+}
