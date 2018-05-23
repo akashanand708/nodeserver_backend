@@ -1,6 +1,6 @@
 # NODESEVER-BACKEND-BOILERPLATE
 
-> A complete initial boilerplate for any WEB and MOBILE application for API Server written in Node.js and ES6.
+> A complete initial boilerplate for any WEB and MOBILE application to provide REST APIs, written in Node.js and ES6.
 
 # Key features
 ## 1. API exposed
