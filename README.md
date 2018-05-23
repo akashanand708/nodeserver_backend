@@ -1,18 +1,17 @@
-# nodeserver-backend-boilerplate
+# NODESEVER-BACKEND-BOILERPLATE
 
 > A complete initial boilerplate for any WEB and MOBILE application for API Server written in Node.js and ES6.
 
-# Key feature
-1. 
-## API exposed
+# Key features
+## 1. API exposed
 - /api/v1/register         -For signUp.
 - /api/v1/login            -For logIn.
 - /api/v1/logout           -For logOut.
 - /api/v1/resetPassword    -For reset password.
 - /api/v1/updatePassword   -For update password.
 
-2. ## Mysql Database.
-6. ## MySQL script to create USER table.
+## 2. Mysql Database.
+## 3. MySQL script to create USER table.
         CREATE SCHEMA `BOOK_FINDER` ;
         CREATE TABLE `BOOK_FINDER`.`USER` (
           `name` INT NOT NULL,
@@ -23,17 +22,13 @@
           `updated_date` DATETIME NULL,
           `created_date` DATETIME NULL,
           PRIMARY KEY (`email`));
-3. 
-# Proper error handling.
+## 4. Proper error handling.
 
-4. 
-# nodemailer implemented for Reset Password.
+## 5. Nodemailer implemented for Reset Password.
 
-5. 
-# For encryption/decryption, methods have been written in CRYPT.JS
+## 6.For encryption/decryption, methods have been written in CRYPT.JS
 
-6. 
-# All APIs can be seen in SWAGGER DOCS on http://localhost:5001/api-docs/
+## 7.All APIs can be seen in SWAGGER DOCS on http://localhost:5001/api-docs/
 
 # Swagger configuration
 - After starting the server in development mode swagger can be run with this url.
