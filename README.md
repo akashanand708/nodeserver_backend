@@ -11,16 +11,28 @@
 > /api/v1/resetPassword    -For reset password.
 > /api/v1/updatePassword   -For update password.
 
-2. 
+2. Mysql Database.
+6. MySQL script to create USER table.
+    CREATE SCHEMA `BOOK_FINDER` ;
+    CREATE TABLE `BOOK_FINDER`.`USER` (
+      `name` INT NOT NULL,
+      `email` VARCHAR(45) NOT NULL,
+      `password` VARCHAR(45) NOT NULL,
+      `jwt_token` VARCHAR(255) NULL,
+      `reset_password_token` VARCHAR(255) NULL,
+      `updated_date` DATETIME NULL,
+      `created_date` DATETIME NULL,
+      PRIMARY KEY (`email`));
+3. 
 # Proper error handling.
 
-3. 
+4. 
 # nodemailer implemented for Reset Password.
 
-4. 
+5. 
 # For encryption/decryption, methods have been written in CRYPT.JS
 
-5. 
+6. 
 # All APIs can be seen in SWAGGER DOCS on http://localhost:5001/api-docs/
 
 # swagger configuration
@@ -32,6 +44,7 @@
 # nodemailer configuration
 - To configure email service, need to update CONSTANT.JS.
 - In CONSTANT.js, encrypted password should be used.For encryption/decryption, methods have been written in      CRYPT.JS
+
 
 ## Requirements
 To start any WEB or MOBILE application, we need complete package of REST APIs
