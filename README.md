@@ -1,6 +1,6 @@
 # nodeserver-backend-boilerplate
 
-> A complete initial boilerplate for API Server written in Node.js and ES6.
+> A complete initial boilerplate for any WEB and MOBILE application for API Server written in Node.js and ES6.
 
 ## Key feature
 1. 
