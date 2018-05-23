@@ -2,14 +2,14 @@
 
 > A complete initial boilerplate for any WEB and MOBILE application for API Server written in Node.js and ES6.
 
-## Key feature
+# Key feature
 1. 
-# API exposed
-> /api/v1/register         -For signUp.
-> /api/v1/login            -For logIn.
-> /api/v1/logout           -For logOut.
-> /api/v1/resetPassword    -For reset password.
-> /api/v1/updatePassword   -For update password.
+## API exposed
+- /api/v1/register         -For signUp.
+- /api/v1/login            -For logIn.
+- /api/v1/logout           -For logOut.
+- /api/v1/resetPassword    -For reset password.
+- /api/v1/updatePassword   -For update password.
 
 2. Mysql Database.
 6. MySQL script to create USER table.
