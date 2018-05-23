@@ -1,15 +1,42 @@
 # nodeserver-backend-boilerplate
 
-> Boilerplate for API Server written in Node.js and ES6.
+> A complete initial boilerplate for API Server written in Node.js and ES6.
+
+## Key feature
+1. 
+# API exposed
+> /api/v1/register         -For signUp.
+> /api/v1/login            -For logIn.
+> /api/v1/logout           -For logOut.
+> /api/v1/resetPassword    -For reset password.
+> /api/v1/updatePassword   -For update password.
+
+2. 
+# Proper error handling.
+
+3. 
+# nodemailer implemented for Reset Password.
+
+4. 
+# For encryption/decryption, methods have been written in CRYPT.JS
+
+5. 
+# All APIs can be seen in SWAGGER DOCS on http://localhost:5001/api-docs/
+
+# swagger configuration
+- After starting the server in development mode swagger can be run with this url.
+  http://localhost:5001/api-docs/
+
+- After adding any new API, need to update SWAGGER.js for that API.
+
+# nodemailer configuration
+- To configure email service, need to update CONSTANT.JS.
+- In CONSTANT.js, encrypted password should be used.For encryption/decryption, methods have been written in      CRYPT.JS
 
 ## Requirements
-
-## API exposed
-> /register         -For signUp.
-> /login            -For logIn.
-> /logout           -For logOut.
-> /resetPassword    -For reset password.
-
+To start any WEB or MOBILE application, we need complete package of REST APIs
+like signup/login/logout/resetPassword/UpdatePassword.
+This boilerplate can be used.
 
 ## Dependencies
 
@@ -36,5 +63,4 @@ npm run build
 # run for production.
 npm run serve
 ```
-
 ## License

@@ -3,7 +3,7 @@ import * as authController from '../controllers/authController.js';
 export default (router) => {
 	router.post('/register', authController.signUp);
 	router.patch('/login', authController.logIn);
-	router.patch('/logout', authController.logOut);
+	router.delete('/logout', authController.logOut);
 	router.patch('/resetPassword', authController.resetPassword);
 	router.patch('/updatePassword', authController.updatePassword);
 

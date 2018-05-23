@@ -44,10 +44,10 @@ export function saveUserDetails(name, email, password, next) {
 			console.log('Save userDetails get connection SqlError...', sqlError);
 			return next(new error.InternalServerError(ERROR_MESSAGE.SOMETING_WENT_WRONG));
 		}
-		let sql = 'INSERT INTO USER (name, email,password,jwt_token) VALUES ?';
+		let sql = 'INSERT INTO USER (name, email,password,jwt_token,reset_password_token) VALUES ?';
 		let jwtToken = generateJwtToken(name, email);
 		let values = [
-			[name, email, encryptPassword(password), jwtToken]
+			[name, email, encryptPassword(password), jwtToken,null]
 		];
 		connection.query(sql, [values], function (err, result) {
 			connection.release();

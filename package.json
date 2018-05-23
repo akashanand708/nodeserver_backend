@@ -33,6 +33,7 @@
     "mysql": "^2.15.0",
     "nodemailer": "^4.6.4",
     "restify-errors": "^6.0.0",
+    "swagger-ui-express": "^3.0.9",
     "winston": "^2.4.2"
   }
 }
