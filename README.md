@@ -15,8 +15,8 @@
         CREATE SCHEMA `BOOK_FINDER` ;
         CREATE TABLE `BOOK_FINDER`.`USER` (
           `name` INT NOT NULL,
-          `email` VARCHAR(45) NOT NULL,
-          `password` VARCHAR(45) NOT NULL,
+          `email` VARCHAR(255) NOT NULL,
+          `password` VARCHAR(255) NOT NULL,
           `jwt_token` VARCHAR(255) NULL,
           `reset_password_token` VARCHAR(255) NULL,
           `updated_date` DATETIME NULL,
