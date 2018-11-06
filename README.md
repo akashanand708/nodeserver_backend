@@ -62,7 +62,7 @@ This boilerplate can be used.
 # install dependencies
 npm install
 
-# run for development with hot reload at localhost:3000
+# run for development with hot reload at localhost:5001
 npm start
 
 # build for production
