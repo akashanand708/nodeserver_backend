@@ -1,7 +1,23 @@
 {
   "name": "nodeserver-backend-boilerplate",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Boilerplate for API Server written in Node.js and ES6",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akashanand708/nodeserver_backend"
+  },
+  "author": "Akash Anand",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akashanand708/nodeserver_backend/issues"
+  },
+  "keywords": [
+    "nodejs",
+    "nodejs-modules",
+    "nodejs-server",
+    "nodejs-mysql"
+  ],
+  "homepage": "https://github.com/akashanand708/nodeserver_backend#readme",
   "scripts": {
     "start": "NODE_ENV=development nodemon ./src/app.js --exec babel-node",
     "build": "babel src -d dist",
@@ -9,7 +25,6 @@
     "test": "mocha --compilers js:babel-register",
     "pretest": "eslint --ignore-path .gitignore ."
   },
-  "author": "Akash Anand",
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.10.4",
