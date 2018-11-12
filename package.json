@@ -6,7 +6,10 @@
     "type": "git",
     "url": "git+https://github.com/akashanand708/nodeserver_backend"
   },
-  "author": "Akash Anand",
+  "author": {
+    "name": "Akash Anand",
+    "email": "akashanand110390@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/akashanand708/nodeserver_backend/issues"
