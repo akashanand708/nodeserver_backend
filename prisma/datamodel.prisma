@@ -1,0 +1,10 @@
+type User {
+  id: ID! @id @unique
+  email: String! @unique
+  name: String!
+  password: String!
+  jwt_token: String!
+  reset_password_token: String!
+  updated_date: DateTime!
+  created_date: DateTime!
+}

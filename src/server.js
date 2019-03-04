@@ -6,7 +6,7 @@ import swaggerUi from'swagger-ui-express';
 import swaggerDocument from './swagger';
 
 import rootRouter from './routers/index';
-import { customErrorHandler, uncaughtExceptionHandler, pgPoolErrorHandler } from './middlewares/errorHandlers';
+import { customErrorHandler, uncaughtExceptionHandler } from './middlewares/errorHandlers';
 var upload = multer();
 
 
@@ -29,8 +29,6 @@ app.use(bodyParser.json());
 //Cookie parser
 app.use(cookieParser());
 /***************** Middleware before routing **************/
-// let connectionConfig = databaseConfig[process.env.NODE_ENV];
-// let connectionPool = mysql.createPool(connectionConfig);
 /** Root Router */
 app.use('/api/v1', rootRouter,function(next){
 	next();

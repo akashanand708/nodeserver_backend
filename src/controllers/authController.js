@@ -1,7 +1,11 @@
 import error from 'restify-errors';
+require('custom-env').env();
 import _ from 'lodash';
 import * as User from '../models/User.js';
-import { signUpValidation, logInValidation, logOutValidation, resetPasswordValidation, updatePasswordValidation } from '../middlewares/validations.js';
+import {
+	signUpValidation, logInValidation,
+	logOutValidation, resetPasswordValidation, updatePasswordValidation
+} from '../middlewares/validations.js';
 
 export function signUp(req, res, next) {
 	let name = _.trim(req.body.name),
@@ -9,6 +13,7 @@ export function signUp(req, res, next) {
 		password = _.trim(req.body.password);
 	signUpValidation(name, email, password, next)
 		.then((validationObject) => {
+			console.log(`Validation..: ${JSON.stringify(validationObject)}`);
 			if (validationObject.isValidated) {
 				User.saveUserDetails(name, email, password, next);
 			}
@@ -24,6 +29,7 @@ export function logIn(req, res, next) {
 	logInValidation(email, password, next)
 		.then((validationObject) => {
 			if (validationObject.isValidated) {
+				console.log(`Log inValidation..: ${JSON.stringify(validationObject)}`);
 				User.saveLogIntoken(email, next);
 			}
 		})
@@ -38,6 +44,7 @@ export function logOut(req, res, next) {
 	logOutValidation(email, token, next)
 		.then((validationObject) => {
 			if (validationObject.isValidated) {
+				console.log(`Log out  inValidation..: ${JSON.stringify(validationObject)}`);
 				User.logOut(email, token, next);
 			}
 		})
@@ -62,7 +69,7 @@ export function resetPassword(req, res, next) {
 export function updatePassword(req, res, next) {
 	let { email, resetToken } = req.query;
 	let { updatedPassword } = req.body;
-	updatePasswordValidation(email, resetToken,updatedPassword, next)
+	updatePasswordValidation(email, resetToken, updatedPassword, next)
 		.then((validationObject) => {
 			if (validationObject.isValidated) {
 				User.updatePassword(email, updatedPassword, next);

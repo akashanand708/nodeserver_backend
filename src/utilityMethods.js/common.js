@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
+import nodemailer from 'nodemailer';
 import _ from 'lodash';
 import jwt from 'jsonwebtoken';
-import transporter from './nodemailer';
-import { EMAIL_CONFIG } from '../constants/constant';
 import backEndServerConfig from '../../config/backend-server-config';
+import logger from './logger';
 
 /**
  * Method to encrypt password.
@@ -40,11 +40,13 @@ export const verifyTokenToken = (token, email) => {
 		if (token) {
 			jwt.verify(token, 'secret', function (err, decoded) {
 				if (err) {
+					logger.error('Token verification error', err);
 					reject({ isTokenVerified: false, err });
 				}
 				else if (decoded && ((decoded.email).toUpperCase() === email.toUpperCase())) {
 					resolve({ isTokenVerified: true, decoded });
 				} else {
+					logger.error('Invalid token');
 					reject({ isTokenVerified: false, decoded: null });
 				}
 			});
@@ -88,7 +90,7 @@ export const generateJwtTokenForResetPassword = (name, email) => {
 		jwtToken = jwt.sign({
 			name: name,
 			email: email
-		}, 'secret', { expiresIn: 30 });
+		}, 'secret', { expiresIn: '1h' });
 	}
 	return jwtToken;
 };
@@ -100,15 +102,16 @@ export const generateJwtTokenForResetPassword = (name, email) => {
 export const sendEmail = (emailOptions) => {
 	return new Promise(function (resolve, reject) {
 		var mailOptions = {
-			from: EMAIL_CONFIG.USER,
+			from: process.env.NODEMAILER_USER,
 			to: emailOptions.to,
 			subject: emailOptions.subject,
 			html: emailOptions.html
 		};
-
+		let transporter = createTransport();
 		transporter.sendMail(mailOptions, function (error, info) {
 			if (error) {
-				console.log(error);
+				console.log('Email send error', error);
+				logger.error("Email send error", error);
 				reject({ emailSent: false });
 			} else {
 				console.log('Email sent: ' + info.response);
@@ -118,6 +121,16 @@ export const sendEmail = (emailOptions) => {
 	});
 };
 
+
+export const createTransport = () => {
+	return nodemailer.createTransport({
+		service: process.env.NODEMAILER_SERVICE,
+		auth: {
+			user: process.env.NODEMAILER_USER,
+			pass: process.env.NODEMAILER_PASS
+		}
+	});
+};
 /**
  * Method to prepare base server url based on development or production mode.
  */

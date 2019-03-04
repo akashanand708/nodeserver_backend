@@ -7,12 +7,6 @@ export const customErrorHandler = (err, req, res, next) =>{
 	res.send(err);
 };
 
-// handle this in the same way you would treat process.on('uncaughtException')
-// it is supplied the error as well as the idle client which received the error
-export function pgPoolErrorHandler(error) {
-	console.error('A pg pool error has occured. %s', error);
-}
-
 export function uncaughtExceptionHandler(app) {
 	return error => {
 		if (app.env == 'development') {
