@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import multer from 'multer';
-import swaggerUi from'swagger-ui-express';
+import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './swagger';
 
 import rootRouter from './routers/index';
@@ -11,7 +11,13 @@ var upload = multer();
 
 
 var app = express();
-
+app.use(function (req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'cache-control,content-type,x-user-email,x-user-token');
+	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+	res.header('Content-Type', 'application/json');
+	next();
+});
 /***************** Middleware before routing **************/
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -30,7 +36,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 /***************** Middleware before routing **************/
 /** Root Router */
-app.use('/api/v1', rootRouter,function(next){
+app.use('/api/v1', rootRouter, function (next) {
 	next();
 });
 
