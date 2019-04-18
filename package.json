@@ -1,6 +1,6 @@
 {
   "name": "nodeserver-backend-boilerplate",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Boilerplate for API Server written in Node.js and ES6",
   "repository": {
     "type": "git",
