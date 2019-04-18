@@ -22,8 +22,8 @@ export async function saveUserDetails(name, email, password, next) {
 				password: encryptPassword(password),
 				jwt_token: jwtToken,
 				reset_password_token: 'null',
-				updated_date: "2015-11-22T13:57:31.123Z",
-				created_date: "2015-11-22T13:57:31.123Z"
+				updated_date: new Date(),
+				created_date: new Date()
 			});
 		console.log(`Created new user: ${JSON.stringify(newUser)}`)
 		return next({ code: 'success', message: SUCCESS_MESSAGE.SUCCESS, token: jwtToken, email });
@@ -44,7 +44,8 @@ export async function saveLogIntoken(email, next) {
 		let jwt_token = generateJwtToken('LogIn', email);
 		let updatedUser = await prisma.updateUser({
 			data: {
-				jwt_token
+				jwt_token,
+				updated_date: new Date()
 			},
 			where: {
 				email
@@ -69,7 +70,8 @@ export async function logOut(email, headerToken, next) {
 	try {
 		let user = await prisma.updateUser({
 			data: {
-				jwt_token: "null"
+				jwt_token: "null",
+				updated_date: new Date()
 			},
 			where: {
 				email
@@ -88,11 +90,11 @@ export async function logOut(email, headerToken, next) {
  * @param {*} next 
  */
 export async function saveResetPasswordToken(email, next) {
-	console.log("ENV VARIABLES...",process.env.NODEMAILER_SERVICE,process.env.NODEMAILER_USER,process.env.NODEMAILER_PASS)
+	console.log("ENV VARIABLES...", process.env.NODEMAILER_SERVICE, process.env.NODEMAILER_USER, process.env.NODEMAILER_PASS)
 	let reset_password_token = generateJwtTokenForResetPassword('ResetPassword', email);
 	try {
 		let updatedUser = await prisma.updateUser({
-			data: { reset_password_token },
+			data: { reset_password_token, updated_date: new Date() },
 			where: { email }
 		});
 		if (updatedUser === null) {
@@ -131,7 +133,8 @@ export async function updatePassword(email, updatedPassword, next) {
 		let user = await prisma.updateUser({
 			data: {
 				password: encryptPassword(updatedPassword),
-				reset_password_token: 'null'
+				reset_password_token: 'null',
+				updated_date: new Date()
 			},
 			where: {
 				email
@@ -152,7 +155,8 @@ export async function updateResetPasswordToken(email) {
 	try {
 		let user = await prisma.updateUser({
 			data: {
-				reset_password_token: "null"
+				reset_password_token: "null",
+				updated_date: new Date()
 			},
 			where: {
 				email

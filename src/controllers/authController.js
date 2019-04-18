@@ -39,8 +39,10 @@ export function logIn(req, res, next) {
 }
 
 export function logOut(req, res, next) {
-	let email = _.trim(req.headers['email']);
-	let token = _.trim(req.headers['x-access-token']);
+	console.log("LOGOUT headers...", req.headers);
+	let email = _.trim(req.headers['x-user-email']);
+	let token = _.trim(req.headers['x-user-token']);
+	console.log("LOGOUT....", email, token);
 	logOutValidation(email, token, next)
 		.then((validationObject) => {
 			if (validationObject.isValidated) {
@@ -69,6 +71,7 @@ export function resetPassword(req, res, next) {
 export function updatePassword(req, res, next) {
 	let { email, resetToken } = req.query;
 	let { updatedPassword } = req.body;
+	console.log("Updated password...",email, resetToken, updatedPassword);
 	updatePasswordValidation(email, resetToken, updatedPassword, next)
 		.then((validationObject) => {
 			if (validationObject.isValidated) {

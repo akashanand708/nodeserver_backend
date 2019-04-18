@@ -3,3 +3,25 @@
     at Object._errnoException (util.js:992:11)
     at _exceptionWithHostPort (util.js:1014:20)
     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1186:14)
+2019-03-09T17:00:08.301Z - error: Token verification error JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/jsonwebtoken/verify.js:49:17)
+    at /Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/utilityMethods.js/common.js:41:8
+    at new Promise (<anonymous>)
+    at verifyTokenToken (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/utilityMethods.js/common.js:39:9)
+    at _callee5$ (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/middlewares/validations.js:157:13)
+    at tryCatch (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js:65:40)
+    at Generator.invoke [as _invoke] (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js:303:22)
+    at Generator.prototype.(anonymous function) [as next] (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js:117:21)
+    at step (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/middlewares/validations.js:479:191)
+    at /Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/middlewares/validations.js:479:361
+2019-03-10T07:31:55.867Z - error: Token verification error JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/jsonwebtoken/verify.js:49:17)
+    at /Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/utilityMethods.js/common.js:41:8
+    at new Promise (<anonymous>)
+    at verifyTokenToken (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/utilityMethods.js/common.js:39:9)
+    at _callee5$ (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/middlewares/validations.js:157:13)
+    at tryCatch (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js:65:40)
+    at Generator.invoke [as _invoke] (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js:303:22)
+    at Generator.prototype.(anonymous function) [as next] (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js:117:21)
+    at step (/Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/middlewares/validations.js:479:191)
+    at /Users/dhruva/PERSONEL/PROJECT/nodeserver_backend/src/middlewares/validations.js:479:361

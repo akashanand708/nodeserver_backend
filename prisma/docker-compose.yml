@@ -13,4 +13,5 @@ services:
         databases:
           default:
             connector: mongo
-            uri: 'mongodb://host.docker.internal:27017/gif_creator'
+            database: gifcreator
+            uri: 'mongodb://host.docker.internal:27017/gifcreator'
